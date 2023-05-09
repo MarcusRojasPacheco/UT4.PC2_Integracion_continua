@@ -4,6 +4,7 @@ pipeline {
         stage('clonning from GIT') {
             steps {
                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'gitprueba', url: 'https://github.com/MarcusRojasPacheco/APP-JAVA.git']])
+                git branch: 'main', credentialsId: 'gitprueba', url: 'https://github.com/MarcusRojasPacheco/UT4.PC2_Integracion_continua.git'
             }
         }
         stage('SonarQube Analysis') {
