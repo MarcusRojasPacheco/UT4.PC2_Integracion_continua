@@ -1,5 +1,6 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientModule } from '@angular/common/http'; // Nuevo: Importa HttpClientModule
 import { AppComponent } from './app.component';
 import { BillingAPIService } from '/var/lib/jenkins/workspace/prueba_0056/angular/projects/billingApp/src/services/swaggerbillingAPI/api/api'; // Asegúrate de que esta ruta sea correcta
 
@@ -7,7 +8,8 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        HttpClientModule // Nuevo: Añade HttpClientModule aquí
       ],
       declarations: [
         AppComponent
