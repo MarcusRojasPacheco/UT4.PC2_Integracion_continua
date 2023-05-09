@@ -1,17 +1,20 @@
 import { NgModule, ModuleWithProviders, SkipSelf, Optional } from '@angular/core';
 import { Configuration } from './configuration';
 import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 
 import { BillingAPIService } from './api/billingAPI.service';
 
 @NgModule({
-  imports:      [],
-  declarations: [],
-  exports:      [],
-  providers: [
-    BillingAPIService ]
-})
+    imports:      [ HttpClientModule ],
+    declarations: [],
+    exports:      [],
+    providers: [
+      BillingAPIService
+    ]
+  })
+  
 export class ApiModule {
     public static forRoot(configurationFactory: () => Configuration): ModuleWithProviders<ApiModule> {
         return {
