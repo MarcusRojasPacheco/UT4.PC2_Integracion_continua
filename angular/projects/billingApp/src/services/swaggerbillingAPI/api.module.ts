@@ -1,7 +1,7 @@
 import { NgModule, ModuleWithProviders, Optional, SkipSelf } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Configuration } from './configuration';
-import { BillingAPIService } from './api/billingAPI.service';
+import { BillingAPIService } from '../services/billing-api.service';
 
 @NgModule({
   imports: [HttpClientModule],
