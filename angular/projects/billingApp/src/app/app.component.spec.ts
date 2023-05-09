@@ -3,7 +3,7 @@ import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientModule } from '@angular/common/http'; // Nuevo: Importa HttpClientModule
 import { AppComponent } from './app.component';
-import { BillingAPIService } from '/var/lib/jenkins/workspace/prueba_0056/angular/projects/billingApp/src/services/swaggerbillingAPI/api/api'; // Asegúrate de que esta ruta sea correcta
+import { BillingAPIService } from './services/swaggerbillingAPI/api/api'; // Corregido: Ruta relativa al archivo BillingAPIService
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -37,5 +37,6 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('Listado de facturas');
+  });
 });
-});
+
