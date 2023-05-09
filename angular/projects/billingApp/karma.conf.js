@@ -27,7 +27,11 @@ module.exports = function (config) {
     autoWatch: true,
     browsers: ['ChromeHeadless'], // Cambiado a ChromeHeadless
     singleRun: false,
-    restartOnFileChange: true
+    restartOnFileChange: true,
+
+    // Aquí agregamos la opción de timeout
+    browserNoActivityTimeout: 60000 // 60 segundos
   });
 };
+
 
