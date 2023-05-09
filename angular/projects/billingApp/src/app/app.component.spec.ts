@@ -1,3 +1,4 @@
+import { ReactiveFormsModule } from '@angular/forms';
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientModule } from '@angular/common/http'; // Nuevo: Importa HttpClientModule
@@ -9,7 +10,8 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        HttpClientModule // Nuevo: Añade HttpClientModule aquí
+        HttpClientModule, // Nuevo: Añade HttpClientModule aquí
+        ReactiveFormsModule // Nuevo: Añade ReactiveFormsModule aquí
       ],
       declarations: [
         AppComponent
