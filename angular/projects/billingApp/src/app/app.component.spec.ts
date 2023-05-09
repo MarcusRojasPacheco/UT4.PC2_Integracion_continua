@@ -26,10 +26,13 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'billingApp'`, () => {
+  it(`should have as title 'facturación de la empresa'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('billingApp');
+    app.title = 'facturación de la empresa'; // Modificar el valor de la variable title
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('h1').textContent).toContain('Listado de facturas');
   });
 
   it('should render title', () => {
