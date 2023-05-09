@@ -7,7 +7,7 @@ import { BillingAPIService } from './api/billingAPI.service';
   imports: [HttpClientModule],
   declarations: [],
   exports: [],
-  providers: [BillingAPIService]
+  providers: [BillingAPIService, HttpClient] // Añadir HttpClient a los proveedores
 })
 export class ApiModule {
   constructor(@Optional() @SkipSelf() parentModule: ApiModule,
@@ -28,3 +28,4 @@ export class ApiModule {
     };
   }
 }
+
