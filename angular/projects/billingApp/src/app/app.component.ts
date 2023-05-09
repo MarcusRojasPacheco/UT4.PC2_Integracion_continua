@@ -9,7 +9,7 @@ import { InvoiceResponse } from '../services/swaggerbillingAPI/model/invoiceResp
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  title = 'facturación de la empresa';
+  title = 'billingApp';
   bills : InvoiceResponse[];
   billingForm: FormGroup;  
   constructor(

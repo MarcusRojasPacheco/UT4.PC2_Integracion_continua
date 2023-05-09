@@ -26,13 +26,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'facturación de la empresa'`, () => {
+  it(`should have as title 'billingApp'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    app.title = 'facturación de la empresa'; // Modificar el valor de la variable title
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Listado de facturas');
+    expect(app.title).toEqual('billingApp');
   });
 
   it('should render title', () => {
@@ -40,5 +37,5 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('Listado de facturas');
-  });
+});
 });
