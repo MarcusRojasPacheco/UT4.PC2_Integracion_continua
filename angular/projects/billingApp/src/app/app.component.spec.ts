@@ -53,31 +53,56 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('h1').textContent).toContain('Listado de facturas');
   });
 
-  it('should handle http requests', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
+it('should handle http requests', () => {
+  let httpTestingController: HttpTestingController;
+  let service: YourService;
 
-    // Ahora utilizamos el método listUsingGET() del servicio de facturación
-    billingService.listUsingGET().subscribe();
-
-    // Esperar a que la solicitud HTTP ocurra y proporcionar una respuesta simulada
-    const req = httpMock.expectOne('http://0.0.0.0:9876/');
-    req.flush({
-      "success": true,
-      "data": {
-        "invoiceList": [
-          {
-            "id": 1,
-            "amount": 1000,
-            "date": "2023-05-10"
-          },
-          {
-            "id": 2,
-            "amount": 2000,
-            "date": "2023-05-09"
-          }
-        ]
-      }
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [YourService],
     });
+
+    httpTestingController = TestBed.inject(HttpTestingController);
+    service = TestBed.inject(YourService);
+  });
+
+  afterEach(() => {
+    httpTestingController.verify();  // Ensure that there are no outstanding requests.
+  });
+
+  it('should get data', () => {
+    const testData: Data = {name: 'Test Data'};  // Define the data you expect to get from the request.
+
+    // Make an HTTP GET request, and expect that it returns the test data.
+    service.getData().subscribe(
+      data => expect(data).toEqual(testData),
+      error => fail('Should have succeeded but failed with ' + error)
+    );
+
+    // At this point, the request is pending, and no response has been sent.
+    // The next step is to expect that the request happened, and to simulate the response.
+
+    const req = httpTestingController.expectOne('//billing');  // This is the URL you expect your service to hit.
+
+    expect(req.request.method).toEqual('GET');
+
+    req.flush(testData);  // Simulate a response with the test data.
+  });
+
+  it('should handle http error', () => {
+    const emsg = 'deliberate 404 error';
+
+    service.getData().subscribe(
+      data => fail('Should have failed with 404 error'),
+      (error: HttpErrorResponse) => {
+        expect(error.status).toEqual(404, 'status');
+        expect(error.error).toEqual(emsg, 'message');
+      }
+    );
+
+    const req = httpTestingController.expectOne('//billing');
+
+    req.flush(emsg, { status: 404, statusText: 'Not Found' });  // Simulate an error response.
   });
 });
