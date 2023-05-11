@@ -52,19 +52,20 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('Listado de facturas');
   });
+});
 
-it('should handle http requests', () => {
+describe('BillingAPIService', () => {
   let httpTestingController: HttpTestingController;
-  let service: YourService;
+  let service: BillingAPIService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [YourService],
+      providers: [BillingAPIService],
     });
 
     httpTestingController = TestBed.inject(HttpTestingController);
-    service = TestBed.inject(YourService);
+    service = TestBed.inject(BillingAPIService);
   });
 
   afterEach(() => {
@@ -94,7 +95,7 @@ it('should handle http requests', () => {
     const emsg = 'deliberate 404 error';
 
     service.getData().subscribe(
-      data => fail('Should have failed with 404 error'),
+data => fail('Should have failed with the 404 error'),
       (error: HttpErrorResponse) => {
         expect(error.status).toEqual(404, 'status');
         expect(error.error).toEqual(emsg, 'message');
