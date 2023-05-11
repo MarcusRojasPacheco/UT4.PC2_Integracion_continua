@@ -69,10 +69,11 @@ describe('BillingAPIService', () => {
     httpTestingController.verify();
   });
 
-  it('should get data', () => {
-    const testData: any = {name: 'Test Data'};  // Cambiar a any si no tienes una interfaz o clase 'Data'
+it('should get data', () => {
+    const testData: any = {name: 'Test Data'}; 
 
-    service.getData().subscribe(
+    // Replace 'getData()' with the correct method
+    service.getBillingData().subscribe(
       data => expect(data).toEqual(testData),
       error => fail('Should have succeeded but failed with ' + error)
     );
@@ -85,7 +86,8 @@ describe('BillingAPIService', () => {
   it('should handle http error', () => {
     const emsg = 'deliberate 404 error';
 
-    service.getData().subscribe(
+    // Replace 'getData()' with the correct method
+    service.getBillingData().subscribe(
       data => fail('Should have failed with the 404 error'),
       (error: HttpErrorResponse) => {
         expect(error.status).toEqual(404, 'status');
