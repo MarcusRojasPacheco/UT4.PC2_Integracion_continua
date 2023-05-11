@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { BillingAPIService } from '/var/lib/jenkins/workspace/prueba_0056/angular/projects/billingApp/src/services/swaggerbillingAPI/api/api'; // Asegúrate de importar tu servicio
 
 describe('AppComponent', () => {
+  let billingAPIService: BillingAPIService;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -17,6 +19,9 @@ describe('AppComponent', () => {
         BillingAPIService // Añade tu servicio a la lista de proveedores
       ]
     }).compileComponents();
+
+    // Inicializa el servicio utilizando TestBed
+    billingAPIService = TestBed.inject(BillingAPIService);
   }));
 
   it('should create the app', () => {
@@ -36,5 +41,17 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('.content span').textContent).toContain('billingApp app is running!');
+  });
+
+  it('should call the getBillingInformation method on service', () => {
+    // Arranque: Crea un espía para el método que queremos observar
+    const getBillingInformationSpy = spyOn(billingAPIService, 'getBillingInformation');
+
+    // Act: Llama al método que estamos probando
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+
+    // Afirmar: Verifica si el método del servicio fue llamado
+    expect(getBillingInformationSpy).toHaveBeenCalled();
   });
 });
