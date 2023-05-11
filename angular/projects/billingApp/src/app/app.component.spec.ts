@@ -1,12 +1,13 @@
 import { ReactiveFormsModule } from '@angular/forms';
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing'; // Actualizado aquí
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { AppComponent } from './app.component';
 import { BillingAPIService } from '/var/lib/jenkins/workspace/prueba_0056/angular/projects/billingApp/src/services/swaggerbillingAPI/api/api';
 
 describe('AppComponent', () => {
   let httpMock: HttpTestingController;
+  let billingService: BillingAPIService;  // Se añade el servicio de facturación
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -22,6 +23,7 @@ describe('AppComponent', () => {
     }).compileComponents();
 
     httpMock = TestBed.inject(HttpTestingController); 
+    billingService = TestBed.inject(BillingAPIService);  // Se inicializa el servicio de facturación
   }));
 
   afterEach(() => {
@@ -55,9 +57,8 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
 
-    // Asegúrate de que tu componente tiene una función getBillingData() que hace la solicitud HTTP
-    // Asegúrate de que esta función existe en tu componente
-    app.getBillingData();
+    // Ahora utilizamos el método listUsingGET() del servicio de facturación
+    billingService.listUsingGET().subscribe();
 
     // Esperar a que la solicitud HTTP ocurra y proporcionar una respuesta simulada
     const req = httpMock.expectOne('http://0.0.0.0:9876/');
