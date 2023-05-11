@@ -1,6 +1,8 @@
+// app.component.spec.ts
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { BillingAPIService } from '/var/lib/jenkins/workspace/prueba_0056/angular/projects/billingApp/src/services/swaggerbillingAPI/api/api'; // Asegúrate de importar tu servicio
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -11,6 +13,9 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      providers: [
+        BillingAPIService // Añade tu servicio a la lista de proveedores
+      ]
     }).compileComponents();
   }));
 
