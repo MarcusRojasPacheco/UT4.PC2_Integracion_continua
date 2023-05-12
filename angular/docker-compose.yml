@@ -1,6 +1,7 @@
-version: '3.8'
+version: '3.7'
 services:
-  billing-app:
-    build: ./angular
+  myapp:
+    build: 
+      context: .  # en lugar de ./angular
     ports:
       - 80:80
