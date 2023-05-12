@@ -108,6 +108,8 @@ pipeline {
 
 ![SLACK](/assets/img/SLACK-03.png)
 
+---
+
 ### CONFIGURAR SONARQUBE
 #### QUE SE VA NECESITAR
  - [![SonarQubePlugins](https://img.shields.io/badge/SonarQube_Plugins-2.15-4E9BCD?logo=sonarqube&logoColor=fff&style=plastic)](https://plugins.jenkins.io/sonar/)
@@ -138,4 +140,7 @@ Una vez descargado entramos con la ruta que tendremos, en mi caso `localhost:900
 
 ![SONARQUBE](/assets/img/SONARQUBE-04.png)
 
-> **NOTA**: Se ha tenido instalar el lanzador de `SonarQube` para que se pueda ejecutar correctamente, [![SonarQubePlugins](https://img.shields.io/badge/Zip_SonarQube-4E9BCD?logo=sonarqube&logoColor=fff&style=plastic)]([https://plugins.jenkins.io/sonar/](https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.0.2856.zip))
+> **NOTA**: Se ha tenido instalar el lanzador de `SonarQube` para que se pueda ejecutar correctamente - [![SonarQubePlugins](https://img.shields.io/badge/Zip_SonarQube-4E9BCD?logo=sonarqube&logoColor=fff&style=plastic)]([https://plugins.jenkins.io/sonar/](https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.0.2856.zip))
+
+#### INTEGRAR SONARQUBE CON JENKINS
+Una vez instalado el `Plugins` de `SonarQube`, vamos a configurar la **IP** del servidor de SonarQube y las `Credenciales` necesarias, quedara de la siguiente forma:
