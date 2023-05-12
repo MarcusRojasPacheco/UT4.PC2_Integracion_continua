@@ -29,6 +29,8 @@
 
 [![Docker Pipeline](https://img.shields.io/badge/DockerHub-sonarqube:9.7.1_community-blue?style=plastic&logo=docker)]([https://plugins.jenkins.io/docker-workflow/](https://hub.docker.com/layers/library/sonarqube/9.7.1-community/images/sha256-d8247aa44526ccf185bf07fd0331a663f16d96f9d12f3e483982c2808083d2f0?context=explore))
 
+[![SonarQubePlugins](https://img.shields.io/badge/Zip_SonarQube-4E9BCD?logo=sonarqube&logoColor=fff&style=plastic)]([https://plugins.jenkins.io/sonar/](https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.0.2856.zip))
+
 ---
 
 ### QUE SE TIENE HACER EN LA ACTIVIDAD
@@ -110,6 +112,7 @@ pipeline {
 #### QUE SE VA NECESITAR
  - [![SonarQubePlugins](https://img.shields.io/badge/SonarQube_Plugins-2.15-4E9BCD?logo=sonarqube&logoColor=fff&style=plastic)](https://plugins.jenkins.io/sonar/)
  - [![Docker Pipeline](https://img.shields.io/badge/DockerHub-sonarqube:9.7.1_community-blue?style=plastic&logo=docker)]([https://plugins.jenkins.io/docker-workflow/](https://hub.docker.com/layers/library/sonarqube/9.7.1-community/images/sha256-d8247aa44526ccf185bf07fd0331a663f16d96f9d12f3e483982c2808083d2f0?context=explore))
+ - [![SonarQubePlugins](https://img.shields.io/badge/Zip_SonarQube-4E9BCD?logo=sonarqube&logoColor=fff&style=plastic)]([https://plugins.jenkins.io/sonar/](https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.0.2856.zip))
 #### DESCARGAMOS EL DOCKER DE SONARQUBE
 Ahora vamos a descargar el `docker` en el cual se va ejecutar con el siguiente comando:
 ```bash
@@ -118,4 +121,21 @@ docker run -d --name sonarqube -e SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true -p 9000
 Una vez descargado entramos con la ruta que tendremos, en mi caso `localhost:9000` y la primera vez que entre nos obligara cambiar la contraseña de la que tiene por defecto.
 
 #### NUEVO PROYECTO EN SONARQUBE
-Ahora vamos a crear un `Nuevo Proyecto`, en el cual vamos a poner de nombre `Angular-SonarQube`
+> Ahora vamos a crear un `Nuevo Proyecto`, en el cual vamos a poner de nombre `Angular-SonarQube`:
+
+![SONARQUBE](/assets/img/SONARQUBE-01.png)
+
+> Ahora vamos a señalar en `locally` en el cual vamos a generar un `Token`, en el cual se usara mas adelante.
+
+![SONARQUBE](/assets/img/SONARQUBE-02.png)
+
+> Vamos a poner que tiempo va durar ese `Token` de uso, en el cual en mi caso `Nunca caduce` y ahora le daremos a `Generar`.
+
+![SONARQUBE](/assets/img/SONARQUBE-03.png)
+
+> Ahora vamos a indicar en el lenguaje se encuentra, en mi caso se dara en `Otros`, y el sistema operativo se pondra `Linux`, con lo generado se tendra poner en nuestro `Pipeline`.
+> Ahora mas adelante se configurar el plugins para que este conectado con `Jenkins`.
+
+![SONARQUBE](/assets/img/SONARQUBE-04.png)
+
+> **NOTA**: Se ha tenido instalar el lanzador de `SonarQube` para que se pueda ejecutar correctamente, [![SonarQubePlugins](https://img.shields.io/badge/Zip_SonarQube-4E9BCD?logo=sonarqube&logoColor=fff&style=plastic)]([https://plugins.jenkins.io/sonar/](https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.0.2856.zip))
