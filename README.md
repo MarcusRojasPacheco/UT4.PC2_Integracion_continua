@@ -1,8 +1,7 @@
 ![Última confirmación](https://img.shields.io/github/last-commit/MarcusRojasPacheco/UT4.PC2_Integracion_continua/main?style=plastic)
 ![Tamaño del repositorio](https://img.shields.io/github/repo-size/MarcusRojasPacheco/UT4.PC2_Integracion_continua?style=plastic)
 ![Recuento de archivos](https://img.shields.io/github/directory-file-count/MarcusRojasPacheco/UT4.PC2_Integracion_continua?style=plastic)
-[![Descargas totales](https://img.shields.io/github/downloads/MarcusRojasPacheco/UT4.PC2_Integracion_continua/total?style=plastic)
-![IMAGEN](https://img.shields.io/badge/Version-1.0-orange)
+![Versión del manifiesto](https://img.shields.io/github/manifest-json/v/MarcusRojasPacheco/UT4.PC2_Integracion_continua?style=plastic)
 ---
 
 ### PLUGINS NECESARIOS EN JENKINS
