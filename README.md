@@ -43,7 +43,13 @@ Primero, necesitas instalar el plugin de Slack en tu servidor Jenkins. Para ello
 #### CREAR UN CANAL DE SLACK
 En tu espacio de trabajo de Slack, crea un canal donde se enviarán las notificaciones. Puedes hacerlo haciendo clic en el signo `+` junto a `Channels` en Slack.
 
+> Como se observa tendremos darle un nombre a nuestro `Canal`, en el cual se pondra el siguiente:
+
 ![SLACK-01](/assets/img/SLACK-01.png)
 
+> Ahora nos dira que si el `Canal`, quiere que este en `Publico` o `Privado`, con lo cual elegimos la opción de `Publico`, ya que sera mas facil y comodo conectarlo mas adelante ese `Canal`.
+
 ![SLACK-02](/assets/img/SLACK-02.png)
+
+#### CREAR UNA APP DE SLACK
 
