@@ -45,11 +45,62 @@ En tu espacio de trabajo de Slack, crea un canal donde se enviarán las notifica
 
 > Como se observa tendremos darle un nombre a nuestro `Canal`, en el cual se pondra el siguiente:
 
-![SLACK-01](/assets/img/SLACK-01.png)
+![SLACK](/assets/img/SLACK-01.png)
 
 > Ahora nos dira que si el `Canal`, quiere que este en `Publico` o `Privado`, con lo cual elegimos la opción de `Publico`, ya que sera mas facil y comodo conectarlo mas adelante ese `Canal`.
 
-![SLACK-02](/assets/img/SLACK-02.png)
+![SLACK](/assets/img/SLACK-02.png)
 
-#### CREAR UNA APP DE SLACK
+#### CONECTAR SLACK CON JENKINS
+Ahora vamos a conectar `Jenkins` con `Slack`, para ello vamos a `Ajuste y Administración` > `Gestionar Aplicaciones` y dentro del gestor vamos a buscar `Jenkins CI`, en el cual vamos hacer lo siguiente:
+
+> Ahora vamos a darle a `Añadir a Slack`.
+
+![SLACK](/assets/img/SLACK-05.png)
+
+> Ahora vamos a poner en el canal que se publicara las notificaciones, en el cual vamos poner `angular-jenkis`.
+
+![SLACK](/assets/img/SLACK-06.png)
+
+> Nos daras unos pasos a seguir, en el cual nos facilita como se conecta, en el cual vamos a copiar el `Token` que no genera, junto con el nombre que hemos puesto al area de trabajo.
+
+![SLACK](/assets/img/SLACK-07.png)
+
+> Ahora vamos a `Jenkins` y ponemos en formato de la credencial en `Secret Text` y ponemos el `Token` dado y le ponemos un nombre para saber de que clave trata.
+
+![SLACK](/assets/img/SLACK-08.png)
+
+> Ahora vamos hacer `Test Connection` en el cual nos dice si los datos introducido son correctos.
+
+![SLACK](/assets/img/SLACK-09.png)
+
+> Como observamos `Jenkins` se ha conectado a nuestra area de trabajo.
+
+![SLACK](/assets/img/SLACK-04.png)
+
+##### PRUEBA DE NOTIFICACIÓN
+Ahora vamos hacer una prueba en la cual con el siguiente `pipeline`, se podra ver en `Slack` la notificación del mensaje puesto.
+
+```javascript
+pipeline {
+    agent any
+
+    stages {
+        stage('Test Slack Notification') {
+            steps {
+                script {
+                    slackSend (
+                        color: '#00FF00', 
+                        message: "Prueba Slack", 
+                        channel: "#angular-jenkis"
+                    )
+                }
+            }
+        }
+    }
+}
+```
+> Como observamos `Jenkins` se ha conectado a nuestra area de trabajo.
+
+![SLACK](/assets/img/SLACK-03.png)
 
