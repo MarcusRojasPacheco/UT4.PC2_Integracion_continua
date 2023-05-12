@@ -1,8 +1,8 @@
-![IMAGEN](https://img.shields.io/github/last-commit/marcusrojaspacheco/UT4.PC2_Integracion_continua) 
-![IMAGEN](https://img.shields.io/github/repo-size/marcusrojaspacheco/UT4.PC2_Integracion_continua) 
-![IMAGEN](https://img.shields.io/github/directory-file-count/marcusrojaspacheco/UT4.PC2_Integracion_continua)
+![Última confirmación](https://img.shields.io/github/last-commit/MarcusRojasPacheco/UT4.PC2_Integracion_continua/main?style=plastic)
+![Tamaño del repositorio](https://img.shields.io/github/repo-size/MarcusRojasPacheco/UT4.PC2_Integracion_continua?style=plastic)
+![Recuento de archivos](https://img.shields.io/github/directory-file-count/MarcusRojasPacheco/UT4.PC2_Integracion_continua?style=plastic)
+[![Descargas totales](https://img.shields.io/github/downloads/MarcusRojasPacheco/UT4.PC2_Integracion_continua/total?style=plastic)
 ![IMAGEN](https://img.shields.io/badge/Version-1.0-orange)
-
 ---
 
 ### PLUGINS NECESARIOS EN JENKINS
@@ -23,4 +23,3 @@
 [![Docker Pipeline](https://img.shields.io/badge/Docker_Pipeline-563.vd5d2e5c4007f-blue?style=plastic&logo=docker)](https://plugins.jenkins.io/docker-workflow/)
 
 [![ClouBess Docker Build and Publish plugin](https://img.shields.io/badge/ClouBess_Docker_Build_and_Publish_plugin-1.4.0-blue?style=plastic&logo=docker)](https://plugins.jenkins.io/docker-build-publish/)
-
