@@ -2,6 +2,7 @@
 ![Tamaño del repositorio](https://img.shields.io/github/repo-size/MarcusRojasPacheco/UT4.PC2_Integracion_continua?style=plastic)
 ![Recuento de archivos](https://img.shields.io/github/directory-file-count/MarcusRojasPacheco/UT4.PC2_Integracion_continua?style=plastic)
 ![Versión del manifiesto](https://img.shields.io/github/manifest-json/v/MarcusRojasPacheco/UT4.PC2_Integracion_continua?style=plastic)
+
 ---
 
 ### PLUGINS NECESARIOS EN JENKINS
@@ -22,3 +23,7 @@
 [![Docker Pipeline](https://img.shields.io/badge/Docker_Pipeline-563.vd5d2e5c4007f-blue?style=plastic&logo=docker)](https://plugins.jenkins.io/docker-workflow/)
 
 [![ClouBess Docker Build and Publish plugin](https://img.shields.io/badge/ClouBess_Docker_Build_and_Publish_plugin-1.4.0-blue?style=plastic&logo=docker)](https://plugins.jenkins.io/docker-build-publish/)
+
+---
+
+### QUE SE TIENE HACER EN LA ACTIVIDAD
