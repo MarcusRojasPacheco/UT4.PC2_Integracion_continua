@@ -30,3 +30,19 @@
 ---
 
 ### QUE SE TIENE HACER EN LA ACTIVIDAD
+En un entorno de desarrollo complejo y dinámico, este proyecto implementa sistemas seguros de despliegue de software, enfocándose en la integración continua, automatización de pruebas y prácticas de DevOps. Utilizamos Jenkins, una herramienta de integración continua, para automatizar partes del proceso de desarrollo de software, incluyendo control de versiones, construcción de software y pruebas. Implementamos herramientas SAST y DAST para mejorar la seguridad del software, analizando el código en busca de vulnerabilidades. Integramos SonarQube para escanear y analizar el código, Docker para la creación y gestión de contenedores, y Slack para notificaciones en tiempo real durante cada paso del pipeline. El proyecto también implica una reflexión sobre la seguridad de los lenguajes de programación. Este enfoque integral garantiza un desarrollo de software eficiente y seguro, capaz de responder rápidamente a las demandas cambiantes del mercado.
+
+---
+
+### CONFIGURAR SLACK PARA JENKINS
+#### QUE SE VA NECESITAR
+ - [![Slack Badge](https://img.shields.io/badge/Slack-4A154B?logo=slack&logoColor=fff&style=plastic)](https://app.slack.com/)
+ - [![Slack Notification](https://img.shields.io/badge/Slack_Notification-664.vc9a_90f8b_c24a_-4A154B?style=plastic&logo=slack)](https://plugins.jenkins.io/slack/)
+#### INSTALACIÓN DEL PLUGINS DE SLACK EN JENKINS
+Primero, necesitas instalar el plugin de Slack en tu servidor Jenkins. Para ello, ve a `Manage Jenkins` > `Manage Plugins`. En la pestaña `Available`, busca `Slack Notification Plugin` y procede a la instalación.
+#### CREAR UN CANAL DE SLACK
+En tu espacio de trabajo de Slack, crea un canal donde se enviarán las notificaciones. Puedes hacerlo haciendo clic en el signo `+` junto a `Channels` en Slack.
+
+[IMAGEN]
+
+
