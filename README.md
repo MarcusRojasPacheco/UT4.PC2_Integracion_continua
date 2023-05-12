@@ -143,4 +143,32 @@ Una vez descargado entramos con la ruta que tendremos, en mi caso `localhost:900
 > **NOTA**: Se ha tenido instalar el lanzador de `SonarQube` para que se pueda ejecutar correctamente - [![SonarQubePlugins](https://img.shields.io/badge/Zip_SonarQube-4E9BCD?logo=sonarqube&logoColor=fff&style=plastic)]([https://plugins.jenkins.io/sonar/](https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.0.2856.zip))
 
 #### INTEGRAR SONARQUBE CON JENKINS
-Una vez instalado el `Plugins` de `SonarQube`, vamos a configurar la **IP** del servidor de SonarQube y las `Credenciales` necesarias, quedara de la siguiente forma:
+> Una vez instalado el `Plugins` de `SonarQube`, vamos a configurar la **IP** del servidor de SonarQube y las `Credenciales` necesarias, quedara de la siguiente forma:
+
+![SONARQUBE](/assets/img/SONARQUBE-05.png)
+
+> Ponemos la versión en la cual se ejecuta el `SonarQube` en el cual lo señelamos, pero en mi caso se puso el fichero en local ya que existia problema de cual la versón se ejecutaba mal.
+
+![SONARQUBE](/assets/img/SONARQUBE-06.png)
+
+##### PIPELINES SONERQUBE
+Ahora vamos poner lo generado por `SonarQube` en el cual se tiene poner de la siguiente manera, en la cual una vez se inicie el `Test`, lo enviara a SonarQube.
+```javascript
+            steps {
+                nodejs(nodeJSInstallationName: 'Node 16') {
+                    dir('angular') {
+                        withSonarQubeEnv('APP-JENKINS') {
+                            sh """/opt/sonar-scanner-4.8.0.2856/bin/sonar-scanner \
+                                -Dsonar.projectKey=Angular-SonarQube \
+                                -Dsonar.sources=. \
+                                -Dsonar.host.url=http://localhost:9000 \
+                                -Dsonar.login=sqp_44f3bbb54ec25e769a304b7dfa2bfd923c54b626"""
+                        }
+                    }
+                }
+            }
+```
+
+---
+
+### DOCKER PARA HACER EL CONTAINER
