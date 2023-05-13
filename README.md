@@ -33,7 +33,7 @@
 
 ---
 
-### REFLEXION DE [**[Is One Programming Language More Secure Than The Rest?](https://www.mend.io/resources/blog/is-one-programming-language-more-secure/)**]
+### REFLEXION DE [**"Is One Programming Language More Secure Than The Rest?"](https://www.mend.io/resources/blog/is-one-programming-language-more-secure/)**
 
 [![Reflexión Marcos Rojas Pacheco](https://img.shields.io/badge/Reflexión%20Marcos%20Rojas%20Pacheco-181717?logo=github&logoColor=fff&style=plastic)](assets/doc/reflexion_marcos_G2.md)
 
