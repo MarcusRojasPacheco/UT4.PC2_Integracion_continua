@@ -3,8 +3,10 @@
 ![Última confirmación](https://img.shields.io/github/last-commit/MarcusRojasPacheco/UT4.PC2_Integracion_continua/main?style=plastic)
 ![Tamaño del repositorio](https://img.shields.io/github/repo-size/MarcusRojasPacheco/UT4.PC2_Integracion_continua?style=plastic)
 ![Recuento de archivos](https://img.shields.io/github/directory-file-count/MarcusRojasPacheco/UT4.PC2_Integracion_continua?style=plastic)
+![Contributors](https://img.shields.io/github/contributors/MarcusRojasPacheco/UT4.PC2_Integracion_continua?style=plastic)
 ![Versión del manifiesto](https://img.shields.io/github/manifest-json/v/MarcusRojasPacheco/UT4.PC2_Integracion_continua?style=plastic)
-![License](https://img.shields.io/github/license/MarcusRojasPacheco/UT4.PC2_Integracion_continua)
+![License](https://img.shields.io/github/license/MarcusRojasPacheco/UT4.PC2_Integracion_continua?style=plastic)
+
 
 ---
 
