@@ -33,6 +33,14 @@
 
 ---
 
+### REFLEXION DE [**[Is One Programming Language More Secure Than The Rest?](https://www.mend.io/resources/blog/is-one-programming-language-more-secure/)**]
+
+[![Reflexión Marcos Rojas Pacheco](https://img.shields.io/badge/Reflexión%20Marcos%20Rojas%20Pacheco-181717?logo=github&logoColor=fff&style=plastic)](assets/doc/reflexion_marcos_G2.md)
+
+[![Reflexión Daniel Ruiz Raposo](https://img.shields.io/badge/Reflexión%20Daniel%20Ruiz%20Raposo-181717?logo=github&logoColor=fff&style=plastic)](assets/doc/reflexion_daniel_G2.md)
+
+---
+
 ### QUE SE TIENE HACER EN LA ACTIVIDAD
 En un entorno de desarrollo complejo y dinámico, este proyecto implementa sistemas seguros de despliegue de software, enfocándose en la integración continua, automatización de pruebas y prácticas de DevOps. Utilizamos Jenkins, una herramienta de integración continua, para automatizar partes del proceso de desarrollo de software, incluyendo control de versiones, construcción de software y pruebas. Implementamos herramientas SAST y DAST para mejorar la seguridad del software, analizando el código en busca de vulnerabilidades. Integramos SonarQube para escanear y analizar el código, Docker para la creación y gestión de contenedores, y Slack para notificaciones en tiempo real durante cada paso del pipeline. El proyecto también implica una reflexión sobre la seguridad de los lenguajes de programación. Este enfoque integral garantiza un desarrollo de software eficiente y seguro, capaz de responder rápidamente a las demandas cambiantes del mercado.
 
