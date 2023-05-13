@@ -147,12 +147,12 @@ Una vez descargado entramos con la ruta que tendremos, en mi caso `localhost:900
 
 ![SONARQUBE](/assets/img/SONARQUBE-05.png)
 
-> Ponemos la versión en la cual se ejecuta el `SonarQube` en el cual lo señelamos, pero en mi caso se puso el fichero en local ya que existia problema de cual la versón se ejecutaba mal.
+> Ponemos la versión en la cual se ejecuta el `SonarQube` en el cual lo señalamos, pero en mi caso se puso el fichero en local ya que existia el problema de que la versón se ejecutaba mal.
 
 ![SONARQUBE](/assets/img/SONARQUBE-06.png)
 
 ##### PIPELINES SONERQUBE
-Ahora vamos poner lo generado por `SonarQube` en el cual se tiene poner de la siguiente manera, en la cual una vez se inicie el `Test`, lo enviara a SonarQube.
+Ahora vamos poner lo generado por `SonarQube` en el cual se tiene que poner de la siguiente manera, una vez se inicie el `Test`, lo enviara a SonarQube.
 ```javascript
             steps {
                 nodejs(nodeJSInstallationName: 'Node 16') {
