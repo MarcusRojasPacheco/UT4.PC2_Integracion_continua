@@ -46,7 +46,7 @@ Entre todos estos, los que más se han utilizado en lenguajes de programación e
 
 [CWE-787](https://cwe.mitre.org/data/definitions/787.html): Esta vulnerabilidad provoca la corrupción de datos, un bloqueo o ejecución de código, pudiendo modificar un índice o realizar una redirección de los punteros a una ubicación distinta dentro de la memoria, permitiendo la operación de escritura y ejecución del comando.
 
-CWE-79: Esta vulnerabilidad es aprovechada cuando no se validan los datos que envía el usuario antes de que se devuelva la respuesta por parte de la página web, pudiendo crear scripts que se quedan almacenados en el servidor, ejecutándose estos cuando accede a la web, afectando a los usuarios que accedan.
+[CWE-79](https://cwe.mitre.org/data/definitions/79.html): Esta vulnerabilidad es aprovechada cuando no se validan los datos que envía el usuario antes de que se devuelva la respuesta por parte de la página web, pudiendo crear scripts que se quedan almacenados en el servidor, ejecutándose estos cuando accede a la web, afectando a los usuarios que accedan.
 
 [CWE-20](https://cwe.mitre.org/data/definitions/20.html): Esta vulnerabilidad es aprovechada cuando no se validan los datos que envía el usuario antes de que se devuelva la respuesta por parte de la página web.
 
