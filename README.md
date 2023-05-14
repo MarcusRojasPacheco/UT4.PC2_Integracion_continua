@@ -178,6 +178,10 @@ Ahora vamos poner lo generado por `SonarQube` en el cual se tiene que poner de l
                 }
             }
 ```
+##### PRUEBA DE SONARQUBE LANZADO
+> Una vez puesto el codigo en nuestro `Pipeline`, vemos como se ejecuta en el `SonarQube`.
+
+![SONARQUBE](/assets/img/SONARQUBE-07.png)
 
 ---
 
