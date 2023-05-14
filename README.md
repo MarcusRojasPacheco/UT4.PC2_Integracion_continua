@@ -10,7 +10,7 @@
 
 ---
 
-### PLUGINS NECESARIOS EN JENKINS
+### TODO LO NECESARIO PARA ANTES DE EMPEZAR
 [![SSH Server](https://img.shields.io/badge/SSH_Server-3.275-brightgreen?style=plastic&logo=ssh)](https://plugins.jenkins.io/sshd/)
 
 [![SSH Pipeline Steps](https://img.shields.io/badge/SSH_Pipeline_Steps-2.0.65-brightgreen?style=plastic&logo=ssh)](https://plugins.jenkins.io/ssh-steps/)
