@@ -186,3 +186,110 @@ Ahora vamos poner lo generado por `SonarQube` en el cual se tiene que poner de l
 ---
 
 ### DOCKER PARA HACER EL CONTAINER
+#### QUE SE VA NECESITAR
+- [![Docker Plugin](https://img.shields.io/badge/Docker_Plugin-1.3.0-2496ED?logo=docker&style=plastic)](https://plugins.jenkins.io/docker-plugin/)
+- [![Docker Pipeline](https://img.shields.io/badge/Docker_Pipeline-563.vd5d2e5c4007f-blue?style=plastic&logo=docker)](https://plugins.jenkins.io/docker-workflow/)
+- [![ClouBess Docker Build and Publish plugin](https://img.shields.io/badge/ClouBess_Docker_Build_and_Publish_plugin-1.4.0-blue?style=plastic&logo=docker)](https://plugins.jenkins.io/docker-build-publish/)
+- [![Docker Pipeline](https://img.shields.io/badge/DockerHub-sunamylol/myapp-blue?style=plastic&logo=docker)](https://hub.docker.com/repository/docker/sunamylol/myapp/general)
+> **NOTA**: Los plugins Docker en `Jenkins` permiten construir, publicar y manejar imágenes `Docker` sin otorgar a Jenkins acceso directo a Docker, mejorando la seguridad y el control.
+
+En este proyecto, se ha tomado la decisión de otorgar permisos a `Jenkins` para que pueda ejecutar `Docker` directamente. Este enfoque proporciona un control total sobre las tareas de `Docker`, permitiendo una integración más estrecha y directa entre `Jenkins` y `Docker`. Aunque existen plugins de Docker para Jenkins, preferimos este método ya que ofrece más flexibilidad y control sobre el proceso de construcción y despliegue de contenedores. Asimismo, al permitir que Jenkins ejecute Docker directamente, podemos aprovechar todas las características y funcionalidades de Docker sin las limitaciones que podrían imponer los plugins.
+
+#### COMANDOS PARA DAR PERMISO EN DOCKER A JENKINS
+
+Para otorgar a Jenkins los permisos necesarios para ejecutar Docker, debes agregar el usuario de Jenkins al grupo de Docker. Aquí están los comandos que necesitas ejecutar en la terminal de tu servidor Jenkins:
+```bash
+sudo usermod -aG docker jenkins
+```
+Este comando agrega al usuario `jenkins` al grupo `Docker`, después de hacer esto, tendrás que reiniciar Jenkins para que los cambios tengan efecto:
+```bash
+sudo systemctl restart jenkins
+```
+Esto reiniciará el servicio de Jenkins. Ahora, Jenkins debería tener los permisos necesarios para ejecutar Docker.
+
+#### COMANDO PARA CONSTRUIR EL CONTENEDOR
+Para construir una imagen Docker desde Jenkins, debes utilizar el comando docker build. Aquí están los pasos que necesitas seguir en tu Jenkinsfile:
+```javascript
+steps {
+    sh 'docker build -t myapp:latest ./angular'
+}
+```
+Este fragmento de código realiza lo siguiente:
+- `sh`: Ejecuta un comando de shell dentro de la etapa del pipeline de Jenkins.
+- `docker build -t myapp:latest ./angular`: Este es el comando de Docker que se va a ejecutar. Construye una nueva imagen Docker a partir del `Dockerfile` ubicado en el directorio `./angular`. La imagen resultante se etiqueta como `myapp:latest`.
+
+#### DOCKER CREADO CON JENKINS SE VA AL DOCKER HUB
+
+Antes de empezar se necesita generar un `Tokens` en nuestro `Docker Hub`, en el cual vamos al apartado `Configuración de la Cuenta` > `Securidad` y vamos añadir a `Nuevo Token `.
+
+![DOCKERHUB](/assets/img/DOCKER-HUB-01.png)
+
+Ahora le tenemos que ponerle un `Nombre` y decir que `Permisos` va tener con este token, en mi caso se le pondra todos los permisos para que pueda subir la imagen.
+
+![DOCKERHUB](/assets/img/DOCKER-HUB-02.png)
+
+Ahora debemos añadir la `Credenciales` como anteriormente se ha añadidos , se hace el mismo procedimiento, se tiene poner el `Usuario` y en vez la contraseña debemos poner el `Token` generado para que tenga una conexión exitosa.
+
+#### DOCKER HUB CON PIPELINE
+Para interactuar con Docker Hub desde Jenkins, necesitas autenticarte con tus credenciales de `Docker Hub`. Aquí están los pasos que necesitas seguir en tu `Jenkinsfile`:
+```javascript
+withCredentials([usernamePassword(credentialsId: 'login-dockerhub', passwordVariable: 'DOCKER_HUB_PASSWORD', usernameVariable: 'DOCKER_HUB_USERNAME')]) {
+    sh '''
+        echo $DOCKER_HUB_PASSWORD | docker login -u $DOCKER_HUB_USERNAME --password-stdin
+        docker tag myapp:latest $DOCKER_HUB_USERNAME/myapp:latest
+        docker push $DOCKER_HUB_USERNAME/myapp:latest
+    '''
+}
+```
+- `echo $DOCKER_HUB_PASSWORD | docker login -u $DOCKER_HUB_USERNAME --password-stdin`: Este comando inicia sesión en Docker Hub utilizando las credenciales proporcionadas.
+- `docker tag myapp:latest $DOCKER_HUB_USERNAME/myapp:latest`: Este comando etiqueta la imagen Docker myapp:latest con el nombre de usuario de Docker Hub, lo que permite subir la imagen a ese repositorio en Docker Hub.
+- `docker push $DOCKER_HUB_USERNAME/myapp:latest`: Este comando sube la imagen Docker al repositorio en Docker Hub.
+
+Ahora vemos en nuestro `Docker Hub` que lo hemos subido correctamente.
+
+![DOCKERHUB](/assets/img/DOCKER-HUB-03.png)
+
+---
+
+### COMANDO PARA DESPLEGAR EL CONTENIDO CREADO
+
+Ahora vamos a desplegar el contenedor con la imagen creada, con lo cual se necesita un `docker-compose.yml` y el comando `Docker-compose` para que sea ejecutado sin problema.
+
+Pero ante se necesita el fichero de `docker-compose.yml`:
+```YAML
+version: '3.7'
+services:
+  myapp:
+    image: sunamylol/myapp:latest
+    ports:
+      - 80:80
+```
+> **NOTA**: Los parametros del `docker-compose`, se tiene poner segun como sea necesario para su funcionamiento.
+
+Ahora vamos implementarlo en nuestro `Pipeline` en el cual se tiene poner lo siguiente:
+```javascript
+        stage('DEPLOY: Docker Compose') {
+            steps {
+                dir('angular') {
+                    sh 'docker-compose up -d'
+                }
+                slackSend (color: '#00FF00', message: "Despliegue de Docker Compose completado", channel: "#jenkins-web")
+            }
+        }
+}
+```
+- `dir('angular')`: Este comando cambia el directorio de trabajo al directorio 'angular'. Todos los comandos que se ejecutan dentro de este bloque se llevarán a cabo en el contexto de este directorio.
+
+- `sh 'docker-compose up -d'`: Este comando ejecuta Docker Compose, que leerá un archivo llamado 'docker-compose.yml' en el directorio actual y procederá a desplegar los servicios que en él se definan. La opción -d indica que los servicios se deben ejecutar en segundo plano.
+
+### TODO FINALIZADO SE PONE A PRUEBA
+
+Ahora todo preparado ejecutado el `Pipeline` y le damos a `Contruir Ahora`, obviamente todo esto tendra un tiempo en el cual se va creado, pero una vez finalizado debera ser de la siguiente forma:
+
+![PIPELINE](/assets/img/TEST-01.png)
+
+En el `Slack` deberia estar las siguientes notificaciones si ha salido todo correctamente.
+
+![PIPELINE](/assets/img/TEST-02.png)
+
+Con todo esto el `Pipeline` estara terminado y todo lo demas terminado.
