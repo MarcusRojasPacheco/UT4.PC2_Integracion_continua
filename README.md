@@ -43,6 +43,8 @@
 
 [![Reflexión Daniel Ruiz Raposo](https://img.shields.io/badge/Reflexión%20Daniel%20Ruiz%20Raposo-181717?logo=github&logoColor=fff&style=plastic)](assets/doc/reflexion_daniel_G2.md)
 
+[![Reflexión Pedro Borrego](https://img.shields.io/badge/Reflexión%20Pedro%20RBorrego-181717?logo=github&logoColor=fff&style=plastic)](assets/doc/reflexion_pedro_G2.md)
+
 ---
 
 ### QUE SE TIENE HACER EN LA ACTIVIDAD
